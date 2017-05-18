@@ -1,8 +1,9 @@
 <?php
-/*
+
 session_start();
 $_SESSION["saludo"]="Hola Mundo";
-*/
+
+
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +19,16 @@ and open the template in the editor.
     </head>
     <body>
         <a href="revision.php"> Revisi&oacute;n sesi&oacute;n</a>
+        <?php if (isset($_SESSION['USR'])){?>
+        <form action="revision.php" method="post">
+            <div><label>Usuario</label><input type="text" name="nombre"></div>
+            <div><label>Clave</label><input type="password" name="clave"></div>
+            <input type="submit" value="Acceder">
+            
+        </form>
+        <?php } ?>
+        
+        <h1>Ejemplos de encriptación con el HASH MD5</h1>
         
         <?php
         echo md5('#holamundo&');
